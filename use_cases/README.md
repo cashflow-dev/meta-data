@@ -45,7 +45,7 @@
 ## CLI
 
 1. User performs the command `cf overview`
-2. A list of the current month upcomming incomes and expenses are listet.
+2. A list of the current month upcomming incomes and expenses are listet. Also show the total amount of the month savings, expenses, incomes and whats left (incomes - expenses), also shows the amount of money on the primarly bank account
 
 ## UC7 - Income/Expense Actions
 
@@ -76,3 +76,72 @@
 1. User performs UC7.
 2. User selects "Postpone".
 3. User enters a new date
+
+## UC11 - Fulfill part of Income/Expense
+
+### CLI
+
+1. User performs UC7.
+2. User selects "Partly Paid".
+3. User enters the paid amount
+
+## UC12 - List savings
+
+### CLI
+
+1. User performs the command `cf savings --list`
+2. A list over the different savings are shown. Showing, name, saved amount and goal amount
+
+## UC13 - Create new saving
+
+### CLI
+
+1. User performs the command `cf savings --create`
+2. User gets asked to enter a savings name, savings goal and due date, an savings category and which savings account the saving is associated with
+
+## UC14 - Create account
+
+### CLI
+
+1. User performs the command `cf signup`
+2. User enters email and password.
+
+## UC15 - Login
+
+### CLI
+
+1. User performs the command `cf signin`
+2. User enters email and password
+
+## UC16 - Not logged in
+
+### CLI
+
+1. User performs any command (beside UC15) and is not logged
+2. A message is printed, informing the user to first login.
+
+## UC17 - User is out of money on his primary account.
+
+### CLI
+
+1. User performs UC8 but has no money.
+2. User gets to pick an savings account to take money from.
+3. A transaction is created from savings account to primary banking account.
+4. A loan is created (owed to savings) due date for next month
+5. A lending is created (money savings is expected to get back)
+6. A transaction is created (the money the user whishes to pay)
+
+## UC18 - User creates income
+
+### CLI
+
+1. User performs the command `cf income --create`
+2. User is asked to enter an amount, a name, if it is a recurrent or one-time income
+
+## UC19 - User creates an expense
+
+### CLI 
+
+1. User performs the command `cf expense --create`
+2. User is asked to enter an amount, a name, if it is a recurrent or one-time expense and if its a fixed or dynamic cost.
+3. If its a cost that ocurrs more oftan than yearly and less than monthly the user gets the option to use savings.
